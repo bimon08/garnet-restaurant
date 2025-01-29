@@ -1,100 +1,102 @@
-import Image from "next/image";
+// pages/index.js
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
+      <Head>
+        <title>My Restaurant</title>
+        <meta name="description" content="Welcome to My Restaurant" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      {/* Hero Section */}
+      <div
+        className="relative h-screen flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://picsum.photos/1600/900?food')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative text-center text-white px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+            Welcome to My Restaurant
+          </h1>
+          <p className="text-xl sm:text-2xl mb-8">
+            Serving the best dishes since 1990
+          </p>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#menu"
+            className="bg-red-600 text-white px-6 py-3 rounded-full text-lg hover:bg-red-700 transition duration-300"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+            View Menu
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* Menu Section */}
+      <div id="menu" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          Our Menu
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Menu Item 1 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="https://picsum.photos/400/300?food=1"
+              alt="Dish 1"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">Grilled Salmon</h3>
+              <p className="text-gray-700 mb-4">
+                Freshly grilled salmon served with vegetables.
+              </p>
+              <p className="text-xl font-bold">$15.99</p>
+            </div>
+          </div>
+
+          {/* Menu Item 2 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="https://picsum.photos/400/300?food=2"
+              alt="Dish 2"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">Pasta Carbonara</h3>
+              <p className="text-gray-700 mb-4">
+                Creamy pasta with bacon and parmesan.
+              </p>
+              <p className="text-xl font-bold">$12.99</p>
+            </div>
+          </div>
+
+          {/* Menu Item 3 */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img
+              src="https://picsum.photos/400/300?food=3"
+              alt="Dish 3"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-bold mb-2">Beef Steak</h3>
+              <p className="text-gray-700 mb-4">
+                Juicy beef steak cooked to perfection.
+              </p>
+              <p className="text-xl font-bold">$20.99</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-6 sm:py-8">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2023 My Restaurant. All rights reserved.</p>
+          <p>123 Main Street, City, Country</p>
+          <p>Phone: +1 234 567 890</p>
+        </div>
       </footer>
     </div>
   );

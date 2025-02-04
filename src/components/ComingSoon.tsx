@@ -5,8 +5,8 @@ import { BackgroundBeams } from "./ui/background-beams";
 const ComingSoon = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      {/* Simplified Background Overlay */}
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6">
@@ -24,31 +24,40 @@ const ComingSoon = () => {
         <p className="text-gray-400 mt-3">Stay Tuned!</p>
       </div>
 
-      {/* Decorative Lines (Placed below the text) */}
+      {/* Optimized Decorative Lines */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="w-48 h-48 border border-gray-500 absolute"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-        />
+        <div className="w-48 h-48 border border-gray-500 absolute animate-rotate">
+          <style jsx>{`
+            @keyframes rotate {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+            .animate-rotate {
+              animation: rotate 20s linear infinite;
+              transform: translateZ(0); // Hardware acceleration
+            }
+          `}</style>
+        </div>
       </div>
 
-      {/* Developer Credit */}
+      {/* Developer Credit with Reduced Motion */}
       <div className="absolute bottom-6 right-6 flex items-center gap-2 text-gray-300">
-        <motion.img
-          src="/bimon-profile.png" // Update with your profile image path
+        <img
+          src="/bimon-profile.png"
           alt="Bimon"
           className="w-8 h-8 rounded-full border border-gray-400"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
         />
         <span className="text-sm">
           Developed by <span className="font-medium">Bimon</span>
         </span>
       </div>
 
-      {/* Background Beams */}
-      <BackgroundBeams />
+      {/* Optimized Background Beams */}
+      <BackgroundBeams className="backface-hidden" />
     </div>
   );
 };

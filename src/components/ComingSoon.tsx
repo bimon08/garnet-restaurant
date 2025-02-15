@@ -52,7 +52,7 @@ const ComingSoon = () => {
           className="w-8 h-8 rounded-full border border-gray-400"
         />
         <span className="text-sm">
-          Developed by <span className="font-medium">Bim0n</span>
+          Developed by <span className="font-medium">Bimon</span>
         </span>
       </div>
 
